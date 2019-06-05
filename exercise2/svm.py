@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import Perceptron
+from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import multilabel_confusion_matrix
@@ -27,7 +27,11 @@ SPLIT = 0.3
 
 TOL = [1e-1, 1e-2, 1e-3, 1e-4]
 CLASS_WEIGHT = [None, "balanced"]
-MAX_ITER = [100, 1000, 10000]
+MAX_ITER = [10000, 100000]
+KERNEL = ["linear", "poly", "rbf", "sigmoid"]
+DEGREE = list(range(1,6))
+DFS = ["ovo","ovr"]
+GAMMA = ["auto","scale"]
 
 # ------------------------------------------------------------------------------
 # -- Main ----------------------------------------------------------------------
@@ -60,14 +64,18 @@ X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=
 
 # Train model
 
-slnn = Perceptron(random_state=SEED)
+svm = SVC(random_state=SEED)
 hyper = {
     "tol":TOL,
     "class_weight":CLASS_WEIGHT,
-    "max_iter":MAX_ITER
+    "max_iter":MAX_ITER,
+    "kernel":KERNEL,
+    "degree":DEGREE,
+    "decision_function_shape":DFS,
+    "gamma":GAMMA
 }
 
-model = GridSearchCV(slnn, param_grid=hyper, n_jobs=-1, iid=True, cv=FOLDS)
+model = GridSearchCV(svm, param_grid=hyper, n_jobs=-1, iid=True, cv=FOLDS)
 model.fit(X_train, y_train.values.ravel())
 prediction = model.predict(X_test)
 
@@ -103,7 +111,7 @@ report = pd.DataFrame.from_dict(metrics, orient="index", columns=cols)
 
 print("")
 print("Dataset: " + DATASET)
-print("Model: Perceptron")
+print("Model: Support Vector Machine")
 print("")
 print("# ------------------------")
 print("# -- Target Class Count --")

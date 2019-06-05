@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import Perceptron
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import multilabel_confusion_matrix
@@ -28,6 +28,10 @@ SPLIT = 0.3
 TOL = [1e-1, 1e-2, 1e-3, 1e-4]
 CLASS_WEIGHT = [None, "balanced"]
 MAX_ITER = [100, 1000, 10000]
+HIDDEN_LAYER_SIZES = [(100,)]
+ACTIVATION = ["identity", "logistic" , "tanh", "relu"]
+SOLVER = ["lbfgs", "sgd", "adam"]
+LEARNING_RATE = ["constant", "invscaling", "adaptive"]
 
 # ------------------------------------------------------------------------------
 # -- Main ----------------------------------------------------------------------
@@ -60,14 +64,18 @@ X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=
 
 # Train model
 
-slnn = Perceptron(random_state=SEED)
+mlp = MLPClassifier(random_state=SEED)
 hyper = {
     "tol":TOL,
     "class_weight":CLASS_WEIGHT,
-    "max_iter":MAX_ITER
+    "max_iter":MAX_ITER,
+    "hidden_layer_sizes":HIDDEN_LAYER_SIZES,
+    "activation":ACTIVATION,
+    "solver":SOLVER,
+    "learning_rate":LEARNING_RATE
 }
 
-model = GridSearchCV(slnn, param_grid=hyper, n_jobs=-1, iid=True, cv=FOLDS)
+model = GridSearchCV(mlp, param_grid=hyper, n_jobs=-1, iid=True, cv=FOLDS)
 model.fit(X_train, y_train.values.ravel())
 prediction = model.predict(X_test)
 
@@ -103,7 +111,7 @@ report = pd.DataFrame.from_dict(metrics, orient="index", columns=cols)
 
 print("")
 print("Dataset: " + DATASET)
-print("Model: Perceptron")
+print("Model: Multilayer Perceptron")
 print("")
 print("# ------------------------")
 print("# -- Target Class Count --")
