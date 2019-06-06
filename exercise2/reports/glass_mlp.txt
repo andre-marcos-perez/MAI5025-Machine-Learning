@@ -1,0 +1,37 @@
+Dataset: glass
+Model: Multilayer Perceptron
+
+# ------------------------
+# -- Target Class Count --
+# ------------------------
+
+building_nf    0.355140
+building_f     0.327103
+headlamps      0.135514
+vehicle_f      0.079439
+containers     0.060748
+tableware      0.042056
+Name: Type, dtype: float64
+None
+
+# ------------------------
+# -- Best Params ---------
+# ------------------------
+
+activation: logistic
+hidden_layer_sizes: (100,)
+learning_rate: constant
+max_iter: 10000
+solver: adam
+tol: 0.0001
+
+# ------------------------
+# -- Performance ---------
+# ------------------------
+
+     building_f  building_nf  vehicle_f  containers  tableware  headlamps  Macro Avg  Micro Avg
+acc    0.892308     0.769231   0.969231    0.969231   0.984615   0.892308   0.912821   0.912821
+pre    0.812500     0.620690   1.000000    1.000000   0.750000   0.000000   0.697198   0.738462
+sen    0.764706     0.818182   0.600000    0.846154   1.000000   0.000000   0.671507   0.738462
+esp    0.937500     0.744186   1.000000    1.000000   0.983871   0.966667   0.938704   0.947692
+f1     0.787879     0.705882   0.750000    0.916667   0.857143   0.000000   0.669595   0.738462
