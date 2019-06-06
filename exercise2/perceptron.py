@@ -23,7 +23,7 @@ SEED = 123
 FOLDS = 10
 SPLIT = 0.3
 
-# -- Hiperparams
+# -- Hyperparams
 
 TOL = [1e-1, 1e-2, 1e-3, 1e-4]
 CLASS_WEIGHT = [None, "balanced"]

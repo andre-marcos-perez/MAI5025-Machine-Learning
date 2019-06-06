@@ -1,0 +1,34 @@
+Dataset: iris
+Model: Multilayer Perceptron
+
+# ------------------------
+# -- Target Class Count --
+# ------------------------
+
+Iris-setosa        0.333333
+Iris-versicolor    0.333333
+Iris-virginica     0.333333
+Name: Species, dtype: float64
+None
+
+# ------------------------
+# -- Best Params ---------
+# ------------------------
+
+activation: identity
+hidden_layer_sizes: (10, 100)
+learning_rate: constant
+max_iter: 100
+solver: lbfgs
+tol: 0.001
+
+# ------------------------
+# -- Performance ---------
+# ------------------------
+
+     Iris-setosa  Iris-versicolor  Iris-virginica  Macro Avg  Micro Avg
+acc          1.0         0.933333        0.933333   0.955556   0.955556
+pre          1.0         0.769231        1.000000   0.923077   0.933333
+sen          1.0         1.000000        0.823529   0.941176   0.933333
+esp          1.0         0.914286        1.000000   0.971429   0.966667
+f1           1.0         0.869565        0.903226   0.924264   0.933333

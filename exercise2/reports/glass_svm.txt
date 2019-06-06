@@ -1,0 +1,38 @@
+Dataset: glass
+Model: Support Vector Machine
+
+# ------------------------
+# -- Target Class Count --
+# ------------------------
+
+building_nf    0.355140
+building_f     0.327103
+headlamps      0.135514
+vehicle_f      0.079439
+containers     0.060748
+tableware      0.042056
+Name: Type, dtype: float64
+None
+
+# ------------------------
+# -- Best Params ---------
+# ------------------------
+
+class_weight: None
+decision_function_shape: ovo
+degree: 1
+gamma: auto
+kernel: rbf
+max_iter: 10000
+tol: 0.1
+
+# ------------------------
+# -- Performance ---------
+# ------------------------
+
+     building_f  building_nf  vehicle_f  containers  tableware  headlamps  Macro Avg  Micro Avg
+acc    0.861538     0.800000   0.953846    0.938462   0.969231   0.923077   0.907692   0.907692
+pre    0.700000     0.636364   1.000000    1.000000   1.000000   0.000000   0.000000   0.723077
+sen    0.823529     0.954545   0.400000    0.692308   0.333333   0.000000   0.533953   0.723077
+esp    0.875000     0.720930   1.000000    1.000000   1.000000   1.000000   0.932655   0.944615
+f1     0.756757     0.763636   0.571429    0.818182   0.500000   0.000000   0.568334   0.723077

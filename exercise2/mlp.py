@@ -11,8 +11,8 @@ from sklearn.metrics import multilabel_confusion_matrix
 
 # -- Environment
 
-DATASET = "iris"
-#DATASET = "glass"
+#DATASET = "iris"
+DATASET = "glass"
 EXTENSION = ".csv"
 DIR = "../dataset/"
 DATAPATH = DIR + DATASET + EXTENSION
@@ -23,7 +23,7 @@ SEED = 123
 FOLDS = 10
 SPLIT = 0.3
 
-# -- Hiperparams
+# -- Hyperparams
 
 TOL = [1e-1, 1e-2, 1e-3, 1e-4]
 MAX_ITER = [100, 1000, 10000]

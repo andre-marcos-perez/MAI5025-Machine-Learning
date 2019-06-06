@@ -1,0 +1,31 @@
+Dataset: iris
+Model: Perceptron
+
+# ------------------------
+# -- Target Class Count --
+# ------------------------
+
+Iris-versicolor    0.333333
+Iris-virginica     0.333333
+Iris-setosa        0.333333
+Name: Species, dtype: float64
+None
+
+# ------------------------
+# -- Best Params ---------
+# ------------------------
+
+class_weight: balanced
+max_iter: 100
+tol: 0.001
+
+# ------------------------
+# -- Performance ---------
+# ------------------------
+
+     Iris-setosa  Iris-versicolor  Iris-virginica  Macro Avg  Micro Avg
+acc     0.933333         0.755556        0.822222   0.837037   0.837037
+pre     0.857143         0.466667        1.000000   0.774603   0.755556
+sen     1.000000         0.700000        0.529412   0.743137   0.755556
+esp     0.888889         0.771429        1.000000   0.886772   0.877778
+f1      0.923077         0.560000        0.692308   0.725128   0.755556
