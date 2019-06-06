@@ -26,7 +26,6 @@ SPLIT = 0.3
 # -- Hiperparams
 
 TOL = [1e-1, 1e-2, 1e-3, 1e-4]
-CLASS_WEIGHT = [None, "balanced"]
 MAX_ITER = [100, 1000, 10000]
 HIDDEN_LAYER_SIZES = [(100,)]
 ACTIVATION = ["identity", "logistic" , "tanh", "relu"]
@@ -67,7 +66,6 @@ X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=
 mlp = MLPClassifier(random_state=SEED)
 hyper = {
     "tol":TOL,
-    "class_weight":CLASS_WEIGHT,
     "max_iter":MAX_ITER,
     "hidden_layer_sizes":HIDDEN_LAYER_SIZES,
     "activation":ACTIVATION,
