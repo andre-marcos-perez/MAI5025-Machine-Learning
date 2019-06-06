@@ -27,7 +27,7 @@ SPLIT = 0.3
 
 TOL = [1e-1, 1e-2, 1e-3, 1e-4]
 MAX_ITER = [100, 1000, 10000]
-HIDDEN_LAYER_SIZES = [(100,)]
+HIDDEN_LAYER_SIZES = [(10,), (100,), (10,10), (10,100), (100,10)]
 ACTIVATION = ["identity", "logistic" , "tanh", "relu"]
 SOLVER = ["lbfgs", "sgd", "adam"]
 LEARNING_RATE = ["constant", "invscaling", "adaptive"]
