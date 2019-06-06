@@ -1,5 +1,3 @@
-"# MAI5025-Machine-Learning"
-
 # MAI5025-Machine-Learning
 Repository for MAI5025-Machine-Learning discipline @ MSc. Data Science |  ICMC | USP
 
